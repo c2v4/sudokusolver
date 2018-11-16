@@ -1,5 +1,5 @@
 package com.c2v4.sudokusolver
 
 class World {
-    //lateinit var state:State
+    lateinit var grid: Grid
 }
