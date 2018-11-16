@@ -75,3 +75,13 @@ Feature: Grid creation
     And The Grid should should have 2 in row 1, column 0
     And The Grid should should be empty in row 0, column 1
     And The Grid should should be empty in row 1, column 1
+
+
+  Scenario: Create 2x2 Grid with numbers out of range
+
+    When I safely create a Grid with structure
+    """
+    5 .
+    2 .
+    """
+    Then It should fail due to "Input has numbers out of range"

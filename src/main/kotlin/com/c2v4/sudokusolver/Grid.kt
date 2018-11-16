@@ -12,7 +12,7 @@ class Grid private constructor(private val values: Array<IntArray>) {
                 column.map {
                     if (it == ".") -1 else {
                         val intValue = it.toInt()
-                        if (intValue < 1 || intValue > numberOfRows) throw IllegalArgumentException("Input has numbers out of range")
+                        if (intValue !in 1..numberOfRows) throw IllegalArgumentException("Input has numbers out of range")
                         else intValue
                     }
                 }.toIntArray()
