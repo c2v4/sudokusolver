@@ -5,7 +5,7 @@ Feature: Grid creation
     When I create a Grid with structure
     """
     1 2
-    2 3
+    2 1
     """
     Then The Grid should be created
 
@@ -15,12 +15,12 @@ Feature: Grid creation
     When I create a Grid with structure
     """
     1 2
-    3 4
+    2 1
     """
     Then The Grid should should have 1 in row 0, column 0
     And The Grid should should have 2 in row 0, column 1
-    And The Grid should should have 3 in row 1, column 0
-    And The Grid should should have 4 in row 1, column 1
+    And The Grid should should have 2 in row 1, column 0
+    And The Grid should should have 1 in row 1, column 1
 
 
   Scenario: Create 3x2 Grid - should fail
@@ -57,9 +57,21 @@ Feature: Grid creation
 
     When I create a Grid with structure
     """
-    1 2 4 5
-    3 4 5 7
-    1 2 4 5
-    3 4 5 7
+    1 2 3 4
+    3 4 2 3
+    1 2 4 3
+    3 4 1 2
     """
     Then The Grid should be created
+
+  Scenario: Create 2x2 Grid with optionals and field check
+
+    When I create a Grid with structure
+    """
+    1 .
+    2 .
+    """
+    Then The Grid should should have 1 in row 0, column 0
+    And The Grid should should have 2 in row 1, column 0
+    And The Grid should should be empty in row 0, column 1
+    And The Grid should should be empty in row 1, column 1

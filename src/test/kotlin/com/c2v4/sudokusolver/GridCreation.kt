@@ -36,5 +36,9 @@ class GridCreation(private val world: World) : En {
             assertThat(exception).`as`("Exception was not thrown").isNotNull()
             assertThat(exception).hasMessage(string)
         }
+
+        Then("The Grid should should be empty in row {int}, column {int}") { row: Int, column: Int ->
+            assertThat(world.grid[row][column]).isEqualTo(-1)
+        }
     }
 }
