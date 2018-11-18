@@ -1,6 +1,12 @@
 package com.c2v4.sudokusolver
 
-class Grid private constructor(private val values: Array<IntArray>) {
+class Grid private constructor(private val values: Array<Array<Int>>) {
+    private val possibleValues:Array<Array<Array<Int>>>
+    init {
+
+        possibleValues= arrayOf()
+    }
+
     companion object {
         fun fromString(input: String): Grid {
             val rows = input.split('\n')
@@ -15,11 +21,11 @@ class Grid private constructor(private val values: Array<IntArray>) {
                         if (intValue !in 1..numberOfRows) throw IllegalArgumentException("Input has numbers out of range")
                         else intValue
                     }
-                }.toIntArray()
+                }.toTypedArray()
             }.toTypedArray())
         }
     }
 
-    operator fun get(row: Int): IntArray = values[row]
+    operator fun get(row: Int): Array<Int> = values[row]
 }
 
