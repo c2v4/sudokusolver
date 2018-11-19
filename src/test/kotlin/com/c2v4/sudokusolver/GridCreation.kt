@@ -29,7 +29,7 @@ class GridCreation(private val world: World) : En {
         }
 
         Then("The Grid should should have {int} in row {int}, column {int}") { value: Int, row: Int, column: Int ->
-            assertThat(world.grid[row][column]).isEqualTo(value)
+            assertThat(world.grid.get(row,column)).isEqualTo(value)
         }
 
         Then("It should fail due to {string}") { string: String ->
@@ -38,7 +38,7 @@ class GridCreation(private val world: World) : En {
         }
 
         Then("The Grid should should be empty in row {int}, column {int}") { row: Int, column: Int ->
-            assertThat(world.grid[row][column]).isEqualTo(-1)
+            assertThat(world.grid.get(row,column)).isEqualTo(-1)
         }
     }
 }
