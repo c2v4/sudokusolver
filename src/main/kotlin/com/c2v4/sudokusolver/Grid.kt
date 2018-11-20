@@ -6,7 +6,7 @@ class Grid private constructor(private val values: Array<Array<Array<Int>>>) {
 
     companion object {
         fun fromString(input: String): Grid {
-            val rows = input.split('\n')
+            val rows = input.trim().split('\n')
             val numberOfRows = rows.size
             if (!numberOfRows.isSquareNumber()) throw IllegalArgumentException("Number of rows is not a square number")
             return Grid(rows.map {
