@@ -1,7 +1,6 @@
 Feature: StringRepresentation
 
 
-  @ignored
   Scenario: ToString
 
     Given I create a Grid with structure

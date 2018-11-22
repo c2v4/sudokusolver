@@ -46,5 +46,19 @@ class Grid private constructor(private val values: Array<Array<Array<Int>>>) {
     override fun hashCode(): Int {
         return Arrays.deepHashCode(values)
     }
+
+    override fun toString(): String {
+        return values.flatMap {
+            it.map { it.firstOrNull() ?: "." }
+                .chunked(Math.sqrt(values.size.toDouble()).toInt())
+                .map { it.joinToString(" ") }
+        }
+            .chunked(Math.sqrt(values.size.toDouble()).toInt())
+            .map { it.joinToString("|") }
+            .chunked(Math.sqrt(values.size.toDouble()).toInt())
+            .map { it.joinToString("|\n|","|","|") }
+            .joinToString("\n|-------|\n") // TODO: Formula
+            .toString()
+    }
 }
 
